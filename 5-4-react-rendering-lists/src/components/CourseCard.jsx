@@ -27,8 +27,8 @@ export default function CourseCard({ course, index, onMutateCourse }) {
   }
 
   // Helpful hints for TASK 3 (optional to use)
-  // const hasTasks = course.tasks.length > 0;
-  // const allDone = hasTasks && course.tasks.every(t => t.isDone);
+  const hasTasks = course.tasks.length > 0;
+  const allDone = hasTasks && course.tasks.every(t => t.isDone);
 
   return (
     <article className="course card">
@@ -45,7 +45,7 @@ export default function CourseCard({ course, index, onMutateCourse }) {
       <section className="tasksSection">
 
         {/* DISPLAY ONLY: Show a message when there are no tasks */}
-        {course.tasks.length === 0 && <p className="muted">No tasks yet.</p>}
+        {!hasTasks && <p className="muted">No tasks yet.</p>}
 
         <ul className="tasks">
           {/* TODO (TASK 2): Render tasks using course.tasks.map(...)
